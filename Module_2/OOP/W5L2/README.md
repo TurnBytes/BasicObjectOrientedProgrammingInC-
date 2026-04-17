@@ -65,14 +65,16 @@ OOP/W5L2/
 │   ├── Student_V2.cpp (Non-parametrized setter)
 │   ├── Student_V3.cpp (Parametrized setter - 1st practical)
 │   ├── Student_V4.cpp (User input in main)
-│   └── Student_V5.cpp (Professional design - BEST!)
+│   ├── Student_V5.cpp (Professional design - BEST!)
+│   └── Student_V6.cpp (Experimental inputHandler variant)
 │
 └── 📝 ANNOTATED CODE FILES (WITH DETAILED COMMENTS):
     ├── Student_V1_ANNOTATED.cpp ← Start here!
     ├── Student_V2_ANNOTATED.cpp
     ├── Student_V3_ANNOTATED.cpp
     ├── Student_V4_ANNOTATED.cpp
-    └── Student_V5_ANNOTATED.cpp ← Study this for best practices!
+    ├── Student_V5_ANNOTATED.cpp ← Study this for best practices!
+    └── Student_V6_ANNOTATED.cpp (Documented new variation)
 ```
 
 ---

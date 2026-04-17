@@ -19,27 +19,27 @@ class Student{
             cout<<"Age: "<<this->age<<endl;
         }
         
-        void inputHandler(){
-
-            string student_name;
-            int student_age;
+        void inputHandler(Student obj){
+            
+            //string student_name;
+            //int student_age;
 
             cout<<"Enter Student Name: ";
-            cin>>student_name;
+            cin>>obj.name;
 
             cout<<"Enter Student Age: ";
-            cin>>student_age;
+            cin>>obj.age;
 
-            this->nameAgeSetter(student_name, student_age);
+            this->nameAgeSetter(obj.name, obj.age);
         }
 };
 
 int main(){
+
     Student obj;//instantiation or object creation
     //obj.name; this is private and can't be accessed out of the class
-    
-    obj.inputHandler();
 
+    obj.inputHandler(obj);
     //obj.nameAgeSetter(student_name, student_age);
     obj.display();//calling getter method (display) with (.) dot operator OR Class Member Operator
     return 0;
