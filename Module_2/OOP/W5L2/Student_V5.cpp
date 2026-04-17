@@ -1,46 +1,51 @@
 #include <iostream>
 using namespace std;
 
-// Remember, we will refine this program step by step, this is just for your understaning
-//on how we can approach a problem with different strategy--some might be good and some might not..
+// Student_V5.cpp
+// This version moves input handling inside the Student class.
+// It keeps main() clean and shows better separation of concerns.
+
 class Student{
     
-    private://access modifier/specifier
+    private:
         string name;
         int age;
-    public://access modifier/specifier
-        void nameAgeSetter(string student_name, int  student_age){ //parametraized setter method
+
+    public:
+        void nameAgeSetter(string student_name, int student_age){ // parameterized setter method
             this->name = student_name;
             this->age = student_age;
         }
 
-        void display(){ //getter method, you can name it whatever you want
-            cout<<"Name: "<<this->name<<endl;
-            cout<<"Age: "<<this->age<<endl;
+        void display(){ // display method prints the student's information
+            cout << "Name: " << this->name << endl;
+            cout << "Age: " << this->age << endl;
         }
         
         void inputHandler(){
-
+            // The class handles its own input, so main() remains simple.
             string student_name;
             int student_age;
 
-            cout<<"Enter Student Name: ";
-            cin>>student_name;
+            cout << "Enter Student Name: ";
+            cin >> student_name;
 
-            cout<<"Enter Student Age: ";
-            cin>>student_age;
+            cout << "Enter Student Age: ";
+            cin >> student_age;
 
+            // Store the input values into this object
             this->nameAgeSetter(student_name, student_age);
         }
 };
 
 int main(){
-    Student obj;//instantiation or object creation
-    //obj.name; this is private and can't be accessed out of the class
-    
+    Student obj; // create a Student object
+
+    // Let the object manage its own input
     obj.inputHandler();
 
-    //obj.nameAgeSetter(student_name, student_age);
-    obj.display();//calling getter method (display) with (.) dot operator OR Class Member Operator
+    // Display the entered student details
+    obj.display();
+
     return 0;
 }

@@ -1,46 +1,49 @@
 #include <iostream>
 using namespace std;
 
-// Remember, we will refine this program step by step, this is just for your understaning
-//on how we can approach a problem with different strategy--some might be good and some might not..
+// Student_V6.cpp
+// This version uses an object parameter in inputHandler().
+// It demonstrates that a class can access private members of another object of the same class.
+
 class Student{
     
-    private://access modifier/specifier
+    private:
         string name;
         int age;
-    public://access modifier/specifier
-        void nameAgeSetter(string student_name, int  student_age){ //parametraized setter method
+
+    public:
+        void nameAgeSetter(string student_name, int student_age){ // parameterized setter
             this->name = student_name;
             this->age = student_age;
         }
 
-        void display(){ //getter method, you can name it whatever you want
-            cout<<"Name: "<<this->name<<endl;
-            cout<<"Age: "<<this->age<<endl;
+        void display(){ // display method prints the stored data
+            cout << "Name: " << this->name << endl;
+            cout << "Age: " << this->age << endl;
         }
         
         void inputHandler(Student obj){
-            
-            //string student_name;
-            //int student_age;
+            // The parameter is a copy of a Student object.
+            // Input is stored in the copy, not directly in the current object.
+            cout << "Enter Student Name: ";
+            cin >> obj.name;
 
-            cout<<"Enter Student Name: ";
-            cin>>obj.name;
+            cout << "Enter Student Age: ";
+            cin >> obj.age;
 
-            cout<<"Enter Student Age: ";
-            cin>>obj.age;
-
+            // Copy values from the temporary object into this object.
             this->nameAgeSetter(obj.name, obj.age);
         }
 };
 
 int main(){
+    Student obj; // create a Student object
 
-    Student obj;//instantiation or object creation
-    //obj.name; this is private and can't be accessed out of the class
-
+    // Pass obj by value into inputHandler.
+    // This creates a copy inside the method.
     obj.inputHandler(obj);
-    //obj.nameAgeSetter(student_name, student_age);
-    obj.display();//calling getter method (display) with (.) dot operator OR Class Member Operator
+
+    // Display the values stored in obj after inputHandler finishes.
+    obj.display();
     return 0;
 }
